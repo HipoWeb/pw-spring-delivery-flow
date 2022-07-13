@@ -1,12 +1,14 @@
 package pe.edu.upc.delivery.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pe.edu.upc.delivery.models.entities.Cliente;
@@ -52,6 +54,22 @@ public class ClienteController {
 			System.err.println(e.getMessage());
 		}
 		
+		return "redirect:/clientes";
+	}
+	
+	@GetMapping("{id}/p")
+	public String view(@PathVariable("id") Integer id, Model model){
+		
+		try {
+			Optional<Cliente> optional = clienteService.findById(id);
+			if(optional.isPresent()) {
+				model.addAttribute("cliente", optional.getClass());
+				return "clientes/view";
+			}
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}		
 		return "redirect:/clientes";
 	}
 	
