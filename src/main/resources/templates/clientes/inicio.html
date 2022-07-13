@@ -69,12 +69,12 @@
       <th scope="row" th:text="${cliente.id}">1</th>
       <td th:text="${cliente.apellidos + ' ' + cliente.nombres}">Mark</td>
       <td th:text="${cliente.direccion}">Otto</td>
-      <td th:text="${cliente.distrito}">@mdo</td>
+      <td th:text="${cliente.distrito.nombre}"></td>
       <td th:text="${cliente.numeroDocumento}">Mark</td>
       <td th:text="${cliente.celular}">Otto</td>
       <td th:text="${cliente.correo}">@mdo</td>
       <td th:text="${cliente.fechaNacimiento}">@mdo</td>
-      <td>Mark</td>
+      
       
       
     </tr>
@@ -86,45 +86,50 @@
   
 </table>
 
-	<form>
+	<form th:action="@{/clientes/save}" th:object="${cliente}" method="post">
 		<div class="row">
 			<div class="col">
-				<input type="text" class="form-control" placeholder="First name"
+				<input type="text" class="form-control" th:field="*{apellidos}" placeholder="Apellidos"
 					aria-label="First name">
 			</div>
 			<div class="col">
-				<input type="text" class="form-control" placeholder="Last name"
+				<input type="text" class="form-control" th:field="*{nombres}" placeholder="Nombres"
 					aria-label="Last name">
 			</div>
 			<div class="col">
-				<input type="text" class="form-control" placeholder="First name"
+				<input type="text" class="form-control" th:field="*{direccion}" placeholder="Direccion"
 					aria-label="First name">
 			</div>
 			<div class="col">
-				<input type="text" class="form-control" placeholder="Last name"
-					aria-label="Last name">
+				<select th:field="*{distrito}" class="form-control">
+					<option th:each="distrito : ${distritos}" th:value="${distrito.id}" th:text="${distrito.nombre}">
+					</option>
+				</select>
 			</div>
 			
 		</div>
 		<div class="row">
 			<div class="col">
-				<input type="text" class="form-control" placeholder="First name"
+				<input type="text" class="form-control" th:field="*{numeroDocumento}" placeholder="Documento"
 					aria-label="First name">
 			</div>
 			<div class="col">
-				<input type="text" class="form-control" placeholder="Last name"
+				<input type="text" class="form-control" th:field="*{celular} "placeholder="celular"
 					aria-label="Last name">
 			</div>
 			<div class="col">
-				<input type="text" class="form-control" placeholder="First name"
+				<input type="email" class="form-control" th:field="*{correo}" placeholder="correo"
 					aria-label="First name">
 			</div>
 			<div class="col">
-				<input type="text" class="form-control" placeholder="Last name"
+				<input type="date" class="form-control" th:field="*{fechaNacimiento}" placeholder="Fecha nac"
 					aria-label="Last name">
 			</div>
 			
 		</div>
+		<br>
+		
+		<button type="submit" class="btn btn-success">Grabar</button>
 	</form>
 
 	<script
