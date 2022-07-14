@@ -15,4 +15,11 @@ public class IndexController {
 		model.addAttribute("saludos", saludo);
 		return "index2";
 	}
+	
+	
+	@GetMapping("template")
+	public String template(){
+		
+		return "template";
+	}
 }

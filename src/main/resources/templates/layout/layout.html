@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(title)">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Demo Project Covid-19">
+    <meta name="author" content="Programación en Web">
+    
+	<title th:replace ="${title}">Delivery </title>
+	
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/chosen.min.css}">
+	<link rel="stylesheet" th:href="@{/css/fontawesome.min.css}">
+	<link rel="stylesheet" th:href="@{/css/solid.min.css}">	    
+    
+</head>
+<body>
+  	<header th:fragment="header">
+  	
+  	</header>
+  	
+  	<main>
+  		<section>
+  			Hello programers
+  		</section>
+  	
+  	</main>
+  		
+  	
+  	<footer th:fragment="footer">
+  		
+  		<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	    <script th:src="@{/js/popper.min.js}"></script>
+	    <script th:src="@{/js/bootstrap.min.js}"></script>
+	    <script th:src="@{/js/chosen.jquery.min.js}"></script>
+	    <script th:src="@{/js/fontawesome.min.js}"></script>
+	    <script th:src="@{/js/sweetalert.min.js}"></script>
+  	</footer>    
+</body>
+</html>
