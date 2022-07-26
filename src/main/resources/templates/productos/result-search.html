@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang= "es" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="layout/layout :: head(~{::title})">
+	<title>Delivery - Result Search</title>
+
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	
+	<main>
+		<section class="container">
+			<h3>
+				Resultado de la Busqueda: <span th:text="${producto.descripcion}"></span>
+				
+			</h3>
+			<ul>
+				<li th:each="producto: ${productos}">
+					<span th:text="${producto.descripcion}"></span>
+					
+				</li>
+			</ul>
+
+			<div  class="card" style="width: 18rem;">
+				<img src="..." class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title" ></h5>
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+			
+			<ul>
+				<li th:each="producto: ${productos}">
+					<span th:text="${producto.descripcion}"></span>
+					
+				</li>
+			</ul>
+
+		</section>
+
+	</main>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
