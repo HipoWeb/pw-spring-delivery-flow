@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.delivery.models.entities.Producto;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
-	List<Producto> findByDescripcionLike(String Descripcion) throws Exception;
+	List<Producto> findByDescripcionContaining(String descripcion) throws Exception;
 }
